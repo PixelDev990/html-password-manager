@@ -12,9 +12,9 @@ Para Resetar a senha Mestra, Digite no lugar da senha: **reset**
 
 ATENÇÃO: Se a senha Mestra for resetada, todas as senhas serão perdidas e deverão ser recadastradas. Tenha sempre uma cópia de **backup** deste arquivo.
 
-[Download HTML password manager em Português](http://alexandrecvieira.droppages.com/files/accounter-ptbr.html)
+[Download HTML password manager em Português](http://alexandrecvieira.droppages.com/#!download.md)
 
-[Download HTML password manager em Inglês](http://alexandrecvieira.droppages.com/files/accounter-en.html)
+[Download HTML password manager em Inglês](http://alexandrecvieira.droppages.com/#!download.md)
 
 <img src="http://alexandrecvieira.droppages.com/images/accounter-ptbr-status.png" width="800">
 
