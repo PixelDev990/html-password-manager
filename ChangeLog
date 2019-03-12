@@ -1,0 +1,23 @@
+
+2019-03-12  Alexandre C Vieira <acamargo.vieira@gmail.com>
+
+	* Versão adaptada para pt-br que usa um "input type password" para receber a senha mestra ocultando-a durante a digitação
+
+2019-03-05  Alexandre C Vieira <acamargo.vieira@gmail.com>
+
+	* README Update
+
+2019-02-28  Alexandre C Vieira <acamargo.vieira@gmail.com>
+
+	* README Update
+	* README Update
+	* README Update
+	* revertendo delete master
+	* Merge pull request #2 from alexandrecvieira/en
+	* Merge pull request #1 from alexandrecvieira/pt-br
+	* delete others para manter o branch puro en
+	* versão adaptada em inglẽs
+	* delete original
+	* versão adaptada em português
+	* README Update
+	* arquivo original do site https://helpfulsheep.com/2012-01-20-html-password-manager/

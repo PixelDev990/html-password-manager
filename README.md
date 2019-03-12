@@ -18,3 +18,15 @@ ATENÇÃO: Se a senha Mestra for resetada, todas as senhas serão perdidas e dev
 
 <img src="http://alexandrecvieira.droppages.com/images/accounter-ptbr-status.png" width="800">
 
+## CHANGELOG
+### [Unreleased]
+
+### [pt-br_0.2] - 2019-03-12
+* Versão adaptada para pt-br que usa um "input type password" para receber a senha mestra ocultando-a durante a digitação
+
+### [en_0.1] - 2019-02-28
+* Version adapted for english that uses "prompt" to receive the master password
+
+### [pt-br_0.1] - 2019-02-28
+* Versão adaptada para pt-br que usa "prompt" para receber a senha mestra
+
