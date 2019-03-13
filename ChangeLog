@@ -1,6 +1,7 @@
 
 2019-03-13  Alexandre C Vieira <acamargo.vieira@gmail.com>
 
+	* Bug: erro ao encriptar as senhas
 	* Version adapted for english that uses an "input type password" to receive the master password, hiding it during typing
 
 2019-03-12  Alexandre C Vieira <acamargo.vieira@gmail.com>
