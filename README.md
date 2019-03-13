@@ -20,6 +20,8 @@ ATENÇÃO: Se a senha Mestra for resetada, todas as senhas serão perdidas e dev
 
 ## CHANGELOG
 ### [Unreleased]
+### [en_0.2] - 2019-03-13
+* Version adapted for english that uses an "input type password" to receive the master password, hiding it during typing
 
 ### [pt-br_0.2] - 2019-03-12
 * Versão adaptada para pt-br que usa um "input type password" para receber a senha mestra ocultando-a durante a digitação
