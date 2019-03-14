@@ -16,7 +16,7 @@ ATENÇÃO: Se a senha Mestra for resetada, todas as senhas serão perdidas e dev
 
 [accounter-en.html -> Download HTML password manager em Inglês](http://alexandrecvieira.droppages.com/#!download.md)
 
-<img src="http://alexandrecvieira.droppages.com/images/accounter-ptbr-status.png" width="800">
+<img src="http://alexandrecvieira.droppages.com/images/hpm.gif" width="800">
 
 ## CHANGELOG
 ### [Unreleased]
