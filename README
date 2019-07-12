@@ -16,10 +16,14 @@ ATENÇÃO: Se a senha Mestra for resetada, todas as senhas serão perdidas e dev
 
 [accounter-en.html -> Download HTML password manager em Inglês](http://alexandrecvieira.droppages.com/#!download.md)
 
-<img src="http://alexandrecvieira.droppages.com/images/hpm1.gif" width="800">
+<img src="http://alexandrecvieira.droppages.com/images/html-password-manager/hpm1.gif" width="800">
 
 ## CHANGELOG
 ### [Unreleased]
+### [en_0.3] - 2019-07-12
+* Melhorada tela da senha mestra, ocultando a senha por padrão e botão para mostrar senha | Visibilidade do statusIndicator
+### [pt-br_0.3] - 2019-07-12
+* Visibilidade do statusIndicator
 ### [en_0.2] - 2019-03-13
 * Version adapted for english that uses an "input type password" to receive the master password, hiding it during typing
 

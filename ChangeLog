@@ -1,6 +1,17 @@
 
+2019-07-12  Alexandre C Vieira <acamargo.vieira@gmail.com>
+
+	* Merge files from 0.3
+	* git ignore
+	* Revert "Merge branch 'pt-br_0.3'"
+	* Merge branch 'pt-br_0.3'
+	* Visibilidade do statusIndicator
+	* Melhorada tela da senha mestra, ocultando a senha por padrão e botão para mostrar senha
+
 2019-03-13  Alexandre C Vieira <acamargo.vieira@gmail.com>
 
+	* Delete accounter.html
+	* Delete accounter-en.html
 	* Bug: erro ao encriptar as senhas
 	* Version adapted for english that uses an "input type password" to receive the master password, hiding it during typing
 
