@@ -82,19 +82,19 @@
 	<div id="main">
 	    <div>
 		<div id="pwdIndicator" style="float: left; width: 10px; margin: 12px; height: 10px; border: 1px solid lightgray; background-color: green;"></div>
-		<div id="logged" style="float: left; margin-top: 10px; height: 10px;">LOGADO</div>
-		<div id="statusIndicator" style="float: left; margin-left: 20px; margin-top: 5px; padding: 5px; width: 150px; height: 15px; border: solid red 1px; display: none;">Altera&ccedil;&otilde;es n&atilde;o salvas&nbsp;&nbsp;<span style="text-weight: bold; color: red;" id="status"></span></div>
-		<div style="float: right; margin: 10px;"><a href="javascript:help();">Ajuda</a></div>
+		<div id="logged" style="float: left; margin-top: 10px; height: 10px;"></div>
+		<div id="statusIndicator" style="float: left; margin-left: 20px; margin-top: 5px; padding: 5px; width: 150px; height: 15px; border: solid red 1px; display: none;">Unsaved changes&nbsp;&nbsp;<span style="text-weight: bold; color: red;" id="status"></span></div>
+		<div style="float: right; margin: 10px;"><a href="javascript:help();">Help</a></div>
 	    </div>
 	    <div id="divForm" style="margin-top: 40px;">
-		Url / Descrição <input id="inUrl" type="text" name="inUrl" style="width: 500px;">
+		Url / Description <input id="inUrl" type="text" name="inUrl" style="width: 500px;">
 		<br>
-		Usuário <input id="inUser" type="text" name="inUser"> Senha <input id="inPass" type="text" name="inPass">
+		User <input id="inUser" type="text" name="inUser"> Password <input id="inPass" type="text" name="inPass">
 		<br> 
-		<button id="insertButton" onclick="insert();">Inserir</button>
+		<button id="insertButton" onclick="insert();">Insert</button>
 	    </div>
 	    
-	    <input id="query" type="text" placeholder="procurar" x-webkit-speech="x-webkit-speech">
+	    <input id="query" type="text" placeholder="search" x-webkit-speech="x-webkit-speech">
 	    <table id="table">
 		<tbody><tr style="display: table-row;">
 			<th colspan="4"></th>
@@ -105,7 +105,7 @@
 	<!-- Password entry -->
 	<div id="passwordPopup" style="width: 100%; height: 100%; display: none; position: fixed; z-index: 1000; top: 50px; text-align: center;">
 	    <div style="display: inline-block; background-color: #fff; box-shadow: 10px 10px 60px #555; height: auto; width: 500px; position: relative; border-radius: 8px; padding: 20px;">
-		Senha: <input type="password" value="Digite a senha Mestra..." id="inPassword" onfocus="inPasswordFocus()" onkeyup="hideShowMasterPassword(this)" onkeydown="hideShowMasterPassword(this)" style="margin-top: -50;"><br><br>
+		Password: <input type="password" value="Enter the new Master password..." id="inPassword" onfocus="inPasswordFocus()" onkeyup="hideShowMasterPassword(this)" onkeydown="hideShowMasterPassword(this)" style="margin-top: -50;"><br><br>
 		<button id="insertButton" onclick="verifyMasterPassword();">OK</button><br><br>
 	    </div>
 	</div>
@@ -113,14 +113,14 @@
 	<!-- Help popup -->
 	<div onclick="javascript:hidePopup();" id="helpPopup" style="width: 100%; height: 100%; display: none; position: fixed; z-index: 1000; top: 50px; text-align: center;">
 	     <div style="display: inline-block; background-color: #fff; box-shadow: 10px 10px 60px #555; height: auto; width: 500px; position: relative; border-radius: 8px; padding: 20px;">
-		Para Salvar as alterações tecle <b>Ctrl + S</b><br />
-		Para refazer o logon tecle <b>F5</b><br />
-		Para Resetar a senha Mestra, Digite no lugar da senha: <b>reset</b><br />
-		<b>ATENÇÃO</b>: Se a senha Mestra for resetada, todas as senhas serão perdidas e deverão ser recadastradas. Tenha sempre uma cópia de <b>backup</b> deste arquivo.<br /> <br />
+		To Save changes <b>Ctrl + S</b><br />
+		To re-log on <b>F5</b><br />
+		To Reset Master password, enter in place of Password: <b>reset</b><br />
+		<b>CAUTION</b>: If the Master password is reset, all passwords will be lost and must be re-registered. Always have a <b>backup</b> copy of this file.<br /> <br />
 		--- <br /> <br />
-		Adaptado de <br /> <a href="https://helpfulsheep.com/2012-01-20-html-password-manager/" target="_blank">Helpful Sheep - HTML password manager</a><br />
-		por Alexandre C Vieira <br />
-		Utiliza a <a href="http://bitwiseshiftleft.github.io/sjcl/" target="_blank">Stanford Javascript Crypto Library</a> para criptografar as senhas <br />
+		Adapted from <br /> <a href="https://helpfulsheep.com/2012-01-20-html-password-manager/" target="_blank">Helpful Sheep - HTML password manager</a><br />
+		by Alexandre C Vieira <br />
+		Uses <a href="http://bitwiseshiftleft.github.io/sjcl/" target="_blank">Stanford Javascript Crypto Library</a> to encrypt passwords <br />
 	    </div>
 	</div>
 
@@ -357,7 +357,7 @@ b){var c={},d;for(d=0;d<b.length;d++)void 0!==a[b[d]]&&(c[b[d]]=a[b[d]]);return 
 		    clearFields();
 		    incStatus();
 		} else {
-		    window.alert("Preencha todos os campos.");
+		    window.alert("Fill in all the fields.");
 		}
 	    }
 
@@ -380,8 +380,8 @@ b){var c={},d;for(d=0;d<b.length;d++)void 0!==a[b[d]]&&(c[b[d]]=a[b[d]]);return 
 	    var logged = 0;
 	    var status = 0;
 
-	    var defaultMasterMessage = "Digite a senha Mestra...";
-	    var defaultNewMasterMessage = "Digite a nova senha Mestra...";
+	    var defaultMasterMessage = "Enter Master password...";
+	    var defaultNewMasterMessage = "Enter the new Master password...";
 	   
 	    var existPasswd = document.getElementById("passwd");
 	    var i = 0;
@@ -446,10 +446,10 @@ b){var c={},d;for(d=0;d<b.length;d++)void 0!==a[b[d]]&&(c[b[d]]=a[b[d]]);return 
 		document.getElementById("pwdIndicator").style.backgroundColor = "green";
 		document.getElementById("statusIndicator").style.display = "inline";
 		document.getElementById("status").innerHTML = status;
-		document.getElementById("logged").innerHTML = "LOGADO";
+		document.getElementById("logged").innerHTML = "LOGGED";
 		logged = 1;
 		hidePasswordPopup();
-		window.alert("Sucesso!");
+		window.alert("Sucess!");
 	    }
 
 	    function createPasswd(passwdEncryptedJson){
@@ -462,7 +462,7 @@ b){var c={},d;for(d=0;d<b.length;d++)void 0!==a[b[d]]&&(c[b[d]]=a[b[d]]);return 
 	    }
 
 	    function passwdError(){
-		 window.alert("Não será possível ver as senhas. Digite a senha Mestra correta.");
+		 window.alert("You will not be able to see the passwords. Enter the correct Master password.");
 	    }
 
 	    function clearFields() {
@@ -498,7 +498,7 @@ b){var c={},d;for(d=0;d<b.length;d++)void 0!==a[b[d]]&&(c[b[d]]=a[b[d]]);return 
 		   || initialPass.length === defaultNewMasterMessage.length) {
 		     x.type = "password";
 		}
-		if(!initialPass.includes("Digite") || !initialPass.includes("reset")) {
+		if(!initialPass.includes("Enter") || !initialPass.includes("reset")) {
 		    if (x.type === "password") {
 			x.type = "text";
 		    } else {
@@ -509,7 +509,7 @@ b){var c={},d;for(d=0;d<b.length;d++)void 0!==a[b[d]]&&(c[b[d]]=a[b[d]]);return 
 
 	    function inPasswordFocus() {
 		var initialPass = document.getElementById("inPassword").value;
-		if(initialPass.includes("Digite") || initialPass.includes("reset")) {
+		if(initialPass.includes("Enter") || initialPass.includes("reset")) {
 		    document.getElementById("inPassword").type = "text";
 		} else {
 		    document.getElementById("inPassword").type = "password";
