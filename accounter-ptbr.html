@@ -88,9 +88,9 @@
 	    </div>
 	    <div id="divForm" style="margin-top: 40px;">
 		Url / Descrição <input id="inUrl" type="text" name="inUrl" style="width: 500px;">
-		<br>
+		<br />
 		Usuário <input id="inUser" type="text" name="inUser"> Senha <input id="inPass" type="text" name="inPass">
-		<br> 
+		<br /> 
 		<button id="insertButton" onclick="insert();">Inserir</button>
 	    </div>
 	    
@@ -105,8 +105,8 @@
 	<!-- Password entry -->
 	<div id="passwordPopup" style="width: 100%; height: 100%; display: none; position: fixed; z-index: 1000; top: 50px; text-align: center;">
 	    <div style="display: inline-block; background-color: #fff; box-shadow: 10px 10px 60px #555; height: auto; width: 500px; position: relative; border-radius: 8px; padding: 20px;">
-		Senha: <input type="password" value="Digite a senha Mestra..." id="inPassword" onfocus="inPasswordFocus()" onkeyup="hideShowMasterPassword(this)" onkeydown="hideShowMasterPassword(this)" style="margin-top: -50;"><br><br>
-		<button id="insertButton" onclick="verifyMasterPassword();">OK</button><br><br>
+		Senha: <input type="password" value="Digite a senha Mestra..." id="inPassword" onfocus="inPasswordFocus()" onkeyup="hideShowMasterPassword(this)" onkeydown="hideShowMasterPassword(this)" style="margin-top: -50;"> <a href="#" onmouseover="showPassword();" onmouseout="hidePassword();" tabindex="-1" style="border: solid yellow 4px; background: yellow; border-radius: 10px; text-decoration: none;">Mostrar</a> <br /><br />
+		<button id="insertButton" onclick="verifyMasterPassword();">OK</button><br /><br />
 	    </div>
 	</div>
 
@@ -118,6 +118,8 @@
 		Para Resetar a senha Mestra, Digite no lugar da senha: <b>reset</b><br />
 		<b>ATENÇÃO</b>: Se a senha Mestra for resetada, todas as senhas serão perdidas e deverão ser recadastradas. Tenha sempre uma cópia de <b>backup</b> deste arquivo.<br /> <br />
 		--- <br /> <br />
+		V0.3
+		<br /> <br />
 		Adaptado de <br /> <a href="https://helpfulsheep.com/2012-01-20-html-password-manager/" target="_blank">Helpful Sheep - HTML password manager</a><br />
 		por Alexandre C Vieira <br />
 		Utiliza a <a href="http://bitwiseshiftleft.github.io/sjcl/" target="_blank">Stanford Javascript Crypto Library</a> para criptografar as senhas <br />
@@ -386,6 +388,8 @@ b){var c={},d;for(d=0;d<b.length;d++)void 0!==a[b[d]]&&(c[b[d]]=a[b[d]]);return 
 	    var existPasswd = document.getElementById("passwd");
 	    var i = 0;
 	    window.onload = function() {
+		document.getElementById("status").innerHTML = "0";
+		document.getElementById("statusIndicator").style.display = "none";
 		document.getElementById("pwdIndicator").style.backgroundColor = "red";
 		document.getElementById("logged").innerHTML = "";
 		document.getElementById("insertButton").disabled = true;
@@ -487,23 +491,14 @@ b){var c={},d;for(d=0;d<b.length;d++)void 0!==a[b[d]]&&(c[b[d]]=a[b[d]]);return 
 	    function incStatus() {
 		status++;
 		document.getElementById("status").innerHTML = status;
-		console.log("status " + status);
+		//console.log("status " + status);
 	    }
 
 	    function hideShowMasterPassword(x) {
 		var initialPass = x.value;
-		console.log(initialPass.length);
-		if(initialPass.length === 0
-		   || initialPass.length === defaultMasterMessage.length
-		   || initialPass.length === defaultNewMasterMessage.length) {
-		     x.type = "password";
-		}
-		if(!initialPass.includes("Digite") || !initialPass.includes("reset")) {
-		    if (x.type === "password") {
-			x.type = "text";
-		    } else {
-			x.type = "password";
-		    }
+		x.type = "password";
+		if(initialPass.includes("Digite") || initialPass.includes("reset")) {
+		    x.type = "text";
 		}
 	    }
 
@@ -512,6 +507,17 @@ b){var c={},d;for(d=0;d<b.length;d++)void 0!==a[b[d]]&&(c[b[d]]=a[b[d]]);return 
 		if(initialPass.includes("Digite") || initialPass.includes("reset")) {
 		    document.getElementById("inPassword").type = "text";
 		} else {
+		    document.getElementById("inPassword").type = "password";
+		}
+	    }
+
+	    function showPassword() {
+		document.getElementById("inPassword").type = "text";
+	    }
+
+	    function hidePassword() {
+		var initialPass = document.getElementById("inPassword").value;
+		if(!initialPass.includes("Digite") && !initialPass.includes("reset")) {
 		    document.getElementById("inPassword").type = "password";
 		}
 	    }
