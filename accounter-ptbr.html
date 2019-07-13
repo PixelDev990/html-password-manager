@@ -105,7 +105,13 @@
 	<!-- Password entry -->
 	<div id="passwordPopup" style="width: 100%; height: 100%; display: none; position: fixed; z-index: 1000; top: 50px; text-align: center;">
 	    <div style="display: inline-block; background-color: #fff; box-shadow: 10px 10px 60px #555; height: auto; width: 500px; position: relative; border-radius: 8px; padding: 20px;">
+		<a href="javascript:help();">Ajuda</a><br />
 		Senha: <input type="password" value="Digite a senha Mestra..." id="inPassword" onfocus="inPasswordFocus()" onkeyup="hideShowMasterPassword(this)" onkeydown="hideShowMasterPassword(this)" style="margin-top: -50;"> <a href="#" onmouseover="showPassword();" onmouseout="hidePassword();" tabindex="-1" style="border: solid yellow 4px; background: yellow; border-radius: 10px; text-decoration: none;">Mostrar</a> <br /><br />
+		<div id="inCriptOptions" style="display: none;">
+		    Opções:<br /><br />
+		    Mensagem Secreta(SJCL &rarr; salt): <input style="margin: 5px auto;" type="text" id="inSalt">
+		    Dado de Autenticação(SJCL &rarr; adata): <input style="margin: 5px auto;" type="text" id="inAdata">
+		</div><br /><br />
 		<button id="insertButton" onclick="verifyMasterPassword();">OK</button><br /><br />
 	    </div>
 	</div>
@@ -115,10 +121,11 @@
 	     <div style="display: inline-block; background-color: #fff; box-shadow: 10px 10px 60px #555; height: auto; width: 500px; position: relative; border-radius: 8px; padding: 20px;">
 		Para Salvar as alterações tecle <b>Ctrl + S</b><br />
 		Para refazer o logon tecle <b>F5</b><br />
-		Para Resetar a senha Mestra, Digite no lugar da senha: <b>reset</b><br />
+		Para Resetar a senha Mestra, Digite no lugar da senha: <b>reset</b><br /><br />
+		Os campos <b>Mensagem Secreta</b> e <b>Dado de Autenticação</b> são opcionais, são utilizados como chaves adicionais para encriptar as senhas.<br /><br /> 
 		<b>ATENÇÃO</b>: Se a senha Mestra for resetada, todas as senhas serão perdidas e deverão ser recadastradas. Tenha sempre uma cópia de <b>backup</b> deste arquivo.<br /> <br />
 		--- <br /> <br />
-		V0.3
+		V0.4
 		<br /> <br />
 		Adaptado de <br /> <a href="https://helpfulsheep.com/2012-01-20-html-password-manager/" target="_blank">Helpful Sheep - HTML password manager</a><br />
 		por Alexandre C Vieira <br />
@@ -374,7 +381,9 @@ b){var c={},d;for(d=0;d<b.length;d++)void 0!==a[b[d]]&&(c[b[d]]=a[b[d]]);return 
 	    }
 
 	    // SJCL Crypt Options
-	    var cryptOptions = {mode:"ccm", iter:1000, ks:256, ts:64, v:1, cipher:"aes", adata:"acvieira", salt:"acvieira"};
+	    var adataVar = "";
+	    var saltVar = "";
+	    var cryptOptions = ""; //{mode:"ccm", iter:1000, ks:256, ts:64, v:1, cipher:"aes", adata:"acvieira", salt:"acvieira"};
 
 	    var passwdEncryptedJson = "";
 
@@ -398,7 +407,13 @@ b){var c={},d;for(d=0;d<b.length;d++)void 0!==a[b[d]]&&(c[b[d]]=a[b[d]]);return 
 		document.getElementById("passwordPopup").style.display = "block";
 
 		if(null === existPasswd) {
-		    document.getElementById("inPassword").value = defaultNewMasterMessage; 
+		    document.getElementById("inPassword").value = defaultNewMasterMessage;
+		    document.getElementById("inCriptOptions").style.display = "inline";
+		} else {
+		    document.getElementById("inCriptOptions").style.display = "none"
+		    adataVar = document.getElementById("adata").value;
+		    saltVar = document.getElementById("salt").value;
+		    cryptOptions = {mode:"ccm", iter:1000, ks:256, ts:64, v:1, cipher:"aes", adata:adataVar, salt:saltVar};
 		}
 
 		inPasswordFocus();
@@ -406,17 +421,33 @@ b){var c={},d;for(d=0;d<b.length;d++)void 0!==a[b[d]]&&(c[b[d]]=a[b[d]]);return 
 
 	    function verifyMasterPassword() {
 		passwd = document.getElementById("inPassword").value
+		adataVar = document.getElementById("inAdata").value;
+		saltVar = document.getElementById("inSalt").value;
+
+		cryptOptions = {mode:"ccm", iter:1000, ks:256, ts:64, v:1, cipher:"aes", adata:adataVar, salt:saltVar};
 
 		if (passwd === null || passwd.localeCompare(defaultMasterMessage) === 0
 		    || passwd.localeCompare(defaultNewMasterMessage) === 0) {
 		    passwdError();
 		    return;
 		}
+
+		if ((adataVar.length > 0 && adataVar.length < 8) || (saltVar.length > 0 && saltVar.length < 8)) {
+		    optionsError();
+		    return;
+		}
 		
 		if (passwd.length > 0){
-		    passwdEncryptedJson =  sjcl.encrypt(passwd, passwd, cryptOptions);
+		    try {
+			passwdEncryptedJson =  sjcl.encrypt(passwd, passwd, cryptOptions);
+		    } catch (err) {
+			optionsError();
+			return;
+		    }
+
 		    if (passwd !== "reset" && null === existPasswd){
 			createPasswd(passwdEncryptedJson);
+			createOptions();
 			passwdSucess();
 		    } else {
 			if (passwd !== "reset") {
@@ -465,10 +496,28 @@ b){var c={},d;for(d=0;d<b.length;d++)void 0!==a[b[d]]&&(c[b[d]]=a[b[d]]);return 
 		main.append(passwdHidden);
 	    }
 
+	    function createOptions(){
+		var main = document.getElementById("main");
+		var adataElm = document.createElement("input");
+		adataElm.setAttribute("type", "hidden");
+		adataElm.setAttribute("id", "adata");
+		adataElm.setAttribute("value", adataVar);
+		main.append(adataElm);
+		var saltElm = document.createElement("input");
+		saltElm.setAttribute("type", "hidden");
+		saltElm.setAttribute("id", "salt");
+		saltElm.setAttribute("value", saltVar);
+		main.append(saltElm);
+	    }
+
 	    function passwdError(){
 		 window.alert("Não será possível ver as senhas. Digite a senha Mestra correta.");
 	    }
 
+	    function optionsError() {
+		window.alert("Os campos Mensagem Secreta e Dado de Autenticação devem possuir 8 caracteres, não utilize espaços, caracteres especiais ou acentos.");
+	    }
+	    
 	    function clearFields() {
 		document.getElementById("inUrl").value = "";
 		document.getElementById("inUser").value = "";
