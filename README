@@ -19,11 +19,18 @@ ATENÇÃO: Se a senha Mestra for resetada, todas as senhas serão perdidas e dev
 <img src="http://alexandrecvieira.droppages.com/images/html-password-manager/hpm1.gif" width="800">
 
 ## CHANGELOG
+
 ### [Unreleased]
+
+### [hpm_0.4] - 2019-07-13
+* Unified release V0.4: fields for optional settings: salt and adata
+
 ### [en_0.3] - 2019-07-12
-* Melhorada tela da senha mestra, ocultando a senha por padrão e botão para mostrar senha | Visibilidade do statusIndicator
+* Improved master password screen, hiding password by default and button to show password | Visibility of statusIndicator
+
 ### [pt-br_0.3] - 2019-07-12
-* Visibilidade do statusIndicator
+* Melhorada tela da senha mestra, ocultando a senha por padrão e botão para mostrar senha | Visibilidade do statusIndicator
+
 ### [en_0.2] - 2019-03-13
 * Version adapted for english that uses an "input type password" to receive the master password, hiding it during typing
 

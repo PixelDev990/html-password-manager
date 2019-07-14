@@ -22,6 +22,9 @@ ATENÇÃO: Se a senha Mestra for resetada, todas as senhas serão perdidas e dev
 
 ### [Unreleased]
 
+### [hpm_0.4] - 2019-07-13
+* Unified release V0.4: fields for optional settings: salt and adata
+
 ### [en_0.3] - 2019-07-12
 * Improved master password screen, hiding password by default and button to show password | Visibility of statusIndicator
 
