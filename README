@@ -10,6 +10,8 @@ Para refazer o logon tecle **F5**
 
 Para Resetar a senha Mestra, Digite no lugar da senha: **reset**
 
+Os campos **Mensagem Secreta** e **Dado de Autenticação** são opcionais, são utilizados como chaves adicionais para encriptar as senhas
+
 ATENÇÃO: Se a senha Mestra for resetada, todas as senhas serão perdidas e deverão ser recadastradas. Tenha sempre uma cópia de **backup** deste arquivo.
 
 [accounter-ptbr.html -> Download HTML password manager em Português](http://alexandrecvieira.droppages.com/#!download.md)
