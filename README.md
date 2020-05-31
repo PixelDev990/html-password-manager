@@ -19,6 +19,7 @@ ATENÇÃO: Se a senha Mestra for resetada, todas as senhas serão perdidas e dev
 ## CHANGELOG
 
 ### [Unreleased]
+* Search feature improved
 
 ### [hpm_0.4] - 2019-07-13
 * Unified release V0.4: fields for optional settings: salt and adata
