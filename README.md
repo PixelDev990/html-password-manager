@@ -14,10 +14,6 @@ Os campos **Mensagem Secreta** e **Dado de Autenticação** são opcionais, são
 
 ATENÇÃO: Se a senha Mestra for resetada, todas as senhas serão perdidas e deverão ser recadastradas. Tenha sempre uma cópia de **backup** deste arquivo.
 
-[accounter-ptbr.html -> Download HTML password manager em Português](http://alexandrecvieira.droppages.com/#!download.md)
-
-[accounter-en.html -> Download HTML password manager em Inglês](http://alexandrecvieira.droppages.com/#!download.md)
-
 <img src="http://alexandrecvieira.droppages.com/images/html-password-manager/hpm1.gif" width="800">
 
 ## CHANGELOG
