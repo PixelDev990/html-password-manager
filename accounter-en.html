@@ -261,16 +261,18 @@ b){var c={},d;for(d=0;d<b.length;d++)void 0!==a[b[d]]&&(c[b[d]]=a[b[d]]);return 
 		if (document.getElementById("query").value == query)
 		    return;
 		query = document.getElementById("query").value;
+		query = normalize(query.toLowerCase());
 		var trs = document.getElementsByTagName("tr");
 		var nr = trs.length;
 		for (var i = 0; i < nr; i++) {
 		    trs[i].style.display = "table-row";
 		    var tds = trs[i].getElementsByTagName("td");
 		    if (tds.length != 0) {
-			var site = trs[i].getElementsByTagName("td")[0];
-			var user = trs[i].getElementsByTagName("td")[1];
-			var pass  = trs[i].getElementsByTagName("td")[2];
-			if (site.innerHTML.indexOf(query) == -1 && user.innerHTML.indexOf(query) == -1 && pass.innerHTML.indexOf(query) == -1)
+			var site = trs[i].getElementsByTagName("td")[0].innerText.toLowerCase();
+			site = normalize(site);
+			var user = trs[i].getElementsByTagName("td")[1].innerText.toLowerCase();
+			user = normalize(user);
+			if (site.indexOf(query) == -1 && user.indexOf(query) == -1)
 			    trs[i].style.display = "none";
 		    }
 		}
@@ -569,6 +571,19 @@ b){var c={},d;for(d=0;d<b.length;d++)void 0!==a[b[d]]&&(c[b[d]]=a[b[d]]);return 
 		if(!initialPass.includes("Enter") && !initialPass.includes("reset")) {
 		    document.getElementById("inPassword").type = "password";
 		}
+	    }
+
+	    function normalize(str) {
+		var accentMap = [
+		    'á', 'à', 'ã', 'â', 'é', 'è', 'ê', 'í', 'ì', 'ó', 'ò', 'õ', 'ô', 'ú', 'ù', 'ç'
+		];
+		var replaceMap = [
+		    'a', 'a', 'a', 'a', 'e', 'e', 'e', 'i', 'i', 'o', 'o', 'o', 'o', 'u', 'u', 'c'
+		];
+		for (var i in accentMap){
+		    str = str.replace(accentMap[i], replaceMap[i]);
+		}
+		return str;
 	    }
 	    
 	</script>
