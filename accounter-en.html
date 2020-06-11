@@ -83,7 +83,7 @@
 	    <div>
 		<div id="pwdIndicator" style="float: left; width: 10px; margin: 12px; height: 10px; border: 1px solid lightgray; background-color: green;"></div>
 		<div id="logged" style="float: left; margin-top: 10px; height: 10px;"></div>
-		<div id="statusIndicator" style="float: left; margin-left: 20px; margin-top: 5px; padding: 5px; width: 200px; height: 15px; text-align: center; border: solid red 1px; display: none;">Unsaved changes&nbsp;&nbsp;<span style="text-weight: bold; color: red;" id="status"></span></div>
+		<div id="statusIndicator" style="float: left; margin-left: 20px; margin-top: 5px; padding: 5px; width: 200px; height: 15px; text-align: center; border: solid red 1px; display: none;">Unsaved changes&nbsp;&nbsp;<span style="text-weight: bold; color: red;" id="status"></span><button id="btnSave" style="margin-left: 52px; position: absolute; margin-top: -3px;" onclick="save();">Save</button></div>
 		<div style="float: right; margin: 10px;"><a href="javascript:help();">Help</a></div>
 	    </div>
 	    <div id="divForm" style="margin-top: 40px;">
@@ -119,13 +119,13 @@
 	<!-- Help popup -->
 	<div onclick="javascript:hidePopup();" id="helpPopup" style="width: 100%; height: 100%; display: none; position: fixed; z-index: 1000; top: 50px; text-align: center;">
 	     <div style="display: inline-block; background-color: #fff; box-shadow: 10px 10px 60px #555; height: auto; width: 500px; position: relative; border-radius: 8px; padding: 20px;">
-		To Save changes <b>Ctrl + S</b><br />
+		To Save changes click the Save button, don't attempt to use the browser <b>File/Save</b> menu option to save changes(it doesn't work)<br /><br />
 		To re-log on <b>F5</b><br />
 		To Reset Master password, enter in place of Password: <b>reset</b><br /><br />
 		The <b>Secret Message</b> and <b>Authentication Data</b> fields are optional, they are used as additional keys to encrypt passwords.<br /> <br />
 		<b>CAUTION</b>: If the Master password is reset, all passwords will be lost and must be re-registered. Always have a <b>backup</b> copy of this file.<br /> <br />
 		--- <br /> <br />
-		V0.4
+		V0.5
 		<br /> <br />
 		Adapted from <br /> <a href="https://helpfulsheep.com/2012-01-20-html-password-manager/" target="_blank">Helpful Sheep - HTML password manager</a><br />
 		by Alexandre C Vieira <br />
@@ -350,7 +350,7 @@ b){var c={},d;for(d=0;d<b.length;d++)void 0!==a[b[d]]&&(c[b[d]]=a[b[d]]);return 
 		    var userCell = row.insertCell(1);
 		    var passCell = row.insertCell(2);
 		    var checkCell = row.insertCell(3);
-		    checkCell.innerHTML = "<p onclick=\"delData(this);\"><a href=\"#\" style=\"color: red; text-decoration: none;\">X</a></p>";
+		    checkCell.innerHTML = "<p onclick=\"delData(this)\" style=\"cursor: pointer; color: red;\">X</p>";
 		    checkCell.setAttribute("style", "width: 15px; text-align:center; font-weight: bold");
 		    var passwdDecrypted = "";
 		    var url = document.getElementById("inUrl").value;
@@ -404,6 +404,7 @@ b){var c={},d;for(d=0;d<b.length;d++)void 0!==a[b[d]]&&(c[b[d]]=a[b[d]]);return 
 		document.getElementById("pwdIndicator").style.backgroundColor = "red";
 		document.getElementById("logged").innerHTML = "";
 		document.getElementById("insertButton").disabled = true;
+		document.getElementById("btnSave").disabled = true;
 		clearFields();
 
 		document.getElementById("passwordPopup").style.display = "block";
@@ -542,6 +543,7 @@ b){var c={},d;for(d=0;d<b.length;d++)void 0!==a[b[d]]&&(c[b[d]]=a[b[d]]);return 
 	    function incStatus() {
 		status++;
 		document.getElementById("status").innerHTML = status;
+		document.getElementById("btnSave").disabled = false;
 		//console.log("status " + status);
 	    }
 
@@ -584,6 +586,18 @@ b){var c={},d;for(d=0;d<b.length;d++)void 0!==a[b[d]]&&(c[b[d]]=a[b[d]]);return 
 		    str = str.replace(accentMap[i], replaceMap[i]);
 		}
 		return str;
+	    }
+
+	    function save() {
+		var html = document.getElementsByTagName('html')[0];
+		var htmlContent = "<!DOCTYPE html> " + html.innerHTML;
+		var blob = new Blob([htmlContent], {type: "text/html"});
+		var downlink = document.createElement("a");
+		downlink.href = URL.createObjectURL(blob);
+		downlink.download = "accounter.html";
+		downlink.hidden = true;
+		document.body.appendChild(downlink);
+		downlink.click();
 	    }
 	    
 	</script>

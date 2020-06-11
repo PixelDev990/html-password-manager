@@ -4,7 +4,7 @@ Adaptado de [Helpful Sheep - HTML password manager](https://helpfulsheep.com/201
 
 Utiliza a [Stanford Javascript Crypto Library](http://bitwiseshiftleft.github.io/sjcl/) 
 
-Para Salvar as alterações tecle **Ctrl + S**
+Para Salvar as alterações clique no botão Salvar, não tente usar a opção de menu **Arquivo / Salvar** do navegador para salvar as alterações(não funciona)
 
 Para refazer o logon tecle **F5**
 
@@ -14,12 +14,12 @@ Os campos **Mensagem Secreta** e **Dado de Autenticação** são opcionais, são
 
 ATENÇÃO: Se a senha Mestra for resetada, todas as senhas serão perdidas e deverão ser recadastradas. Tenha sempre uma cópia de **backup** deste arquivo.
 
-<img src="http://alexandrecvieira.droppages.com/images/html-password-manager/hpm1.gif" width="800">
-
 ## CHANGELOG
 
 ### [Unreleased]
 * Search feature improved
+* Save button
+* Other interface improvements
 
 ### [hpm_0.4] - 2019-07-13
 * Unified release V0.4: fields for optional settings: salt and adata
