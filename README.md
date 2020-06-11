@@ -1,4 +1,4 @@
-# HTML password manager
+# HTML Password Manager
 
 Adaptado de [Helpful Sheep - HTML password manager](https://helpfulsheep.com/2012-01-20-html-password-manager/)
 
