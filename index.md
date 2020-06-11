@@ -1,7 +1,5 @@
 ---
 layout: default
-title: HTML Password Manager
-show_downloads: true
 ---
 
 Text can be **bold**, _italic_, or ~~strikethrough~~.
