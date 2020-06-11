@@ -1,5 +1,6 @@
 ---
 layout: default
+title: HTML Password Manager
 show_downloads: true
 ---
 
