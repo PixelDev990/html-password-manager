@@ -1,3 +1,4 @@
 theme: jekyll-theme-cayman
 title: HTML Password Manager
 Description: A single html file that securely stores passwords
+show_downloads: true
