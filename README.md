@@ -17,8 +17,8 @@ ATENÇÃO: Se a senha Mestra for resetada, todas as senhas serão perdidas e dev
 ## CHANGELOG
 
 ### [Unreleased]
+
 ### [hpm_0.5] - 2020-06-10
-* ChangeLog Update
 * Search feature improved
 * Save button
 * Other interface improvements
