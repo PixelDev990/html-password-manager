@@ -17,6 +17,8 @@ ATENÇÃO: Se a senha Mestra for resetada, todas as senhas serão perdidas e dev
 ## CHANGELOG
 
 ### [Unreleased]
+* Mobile device detection
+* Allow to save only the master password
 
 ### [hpm_0.5] - 2020-06-10
 * Search feature improved

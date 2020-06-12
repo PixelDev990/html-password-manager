@@ -125,7 +125,7 @@
 		The <b>Secret Message</b> and <b>Authentication Data</b> fields are optional, they are used as additional keys to encrypt passwords.<br /> <br />
 		<b>CAUTION</b>: If the Master password is reset, all passwords will be lost and must be re-registered. Always have a <b>backup</b> copy of this file.<br /> <br />
 		--- <br /> <br />
-		V0.5
+		V0.51
 		<br /> <br />
 		Adapted from <br /> <a href="https://helpfulsheep.com/2012-01-20-html-password-manager/" target="_blank">Helpful Sheep - HTML password manager</a><br />
 		by Alexandre C Vieira <br />
@@ -398,7 +398,11 @@ b){var c={},d;for(d=0;d<b.length;d++)void 0!==a[b[d]]&&(c[b[d]]=a[b[d]]);return 
 	   
 	    var existPasswd = document.getElementById("passwd");
 	    var i = 0;
+	    var isMobile = navigator.userAgent.match(/Android/i) || navigator.userAgent.match(/Mobile/i) ? true : false;
 	    window.onload = function() {
+		if(isMobile) {
+		    document.getElementById("divForm").style.display = "none";
+		}
 		document.getElementById("status").innerHTML = "0";
 		document.getElementById("statusIndicator").style.display = "none";
 		document.getElementById("pwdIndicator").style.backgroundColor = "red";
@@ -482,7 +486,11 @@ b){var c={},d;for(d=0;d<b.length;d++)void 0!==a[b[d]]&&(c[b[d]]=a[b[d]]);return 
 	    function passwdSucess() {
 		document.getElementById("insertButton").disabled = false;
 		document.getElementById("pwdIndicator").style.backgroundColor = "green";
-		document.getElementById("statusIndicator").style.display = "inline";
+		if(isMobile) {
+		    document.getElementById("statusIndicator").style.display = "none";
+		} else {
+		    document.getElementById("statusIndicator").style.display = "inline";
+		}
 		document.getElementById("status").innerHTML = status;
 		document.getElementById("logged").innerHTML = "LOGGED";
 		logged = 1;
@@ -497,6 +505,7 @@ b){var c={},d;for(d=0;d<b.length;d++)void 0!==a[b[d]]&&(c[b[d]]=a[b[d]]);return 
 		passwdHidden.setAttribute("id", "passwd");
 		passwdHidden.setAttribute("value", passwdEncryptedJson);
 		main.append(passwdHidden);
+		incStatus();
 	    }
 
 	    function createOptions(){

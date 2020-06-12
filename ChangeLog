@@ -1,4 +1,9 @@
 
+2020-06-11  Alexandre C Vieira <acamargo.vieira@gmail.com>
+
+	* Delete _config.yml
+	* Set theme jekyll-theme-cayman
+
 2020-06-10  Alexandre C Vieira <acamargo.vieira@gmail.com>
 
 	* Save button; Other interface improvements
