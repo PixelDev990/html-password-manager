@@ -6,7 +6,7 @@ A single html file that securely stores passwords. Passwords are encrypted with 
 
 To Save changes click the Save button, don't attempt to use the browser **File/Save** menu option to save changes(it doesn't work)
 
-To re-log on **F5**
+to re-login press **F5**
 
 To Reset Master password, enter in place of Password: **reset**
 
