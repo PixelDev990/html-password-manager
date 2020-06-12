@@ -34,15 +34,4 @@ ATENÇÃO: Se a senha Mestra for resetada, todas as senhas serão perdidas e dev
 ### [pt-br_0.3] - 2019-07-12
 * Melhorada tela da senha mestra, ocultando a senha por padrão e botão para mostrar senha | Visibilidade do statusIndicator
 
-### [en_0.2] - 2019-03-13
-* Version adapted for english that uses an "input type password" to receive the master password, hiding it during typing
-
-### [pt-br_0.2] - 2019-03-13
-* Versão adaptada para pt-br que usa um "input type password" para receber a senha mestra ocultando-a durante a digitação
-
-### [en_0.1] - 2019-03-12
-* Version adapted for english that uses "prompt" to receive the master password
-
-### [pt-br_0.1] - 2019-03-12
-* Versão adaptada para pt-br que usa "prompt" para receber a senha mestra
 
