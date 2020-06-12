@@ -9,7 +9,7 @@ A single html file that securely stores passwords. Passwords are encrypted with 
 * Easy data inclusion using the browser
 * Easy data query using the browser
 * Case insensitive and accent insensitive search
-* Accessible from mobile devices via dropbox
+* Accessible from mobile devices via Dropbox
 
 ## Using
 
