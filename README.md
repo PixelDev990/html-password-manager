@@ -2,7 +2,7 @@
 
 Adaptado de [Helpful Sheep - HTML password manager](https://helpfulsheep.com/2012-01-20-html-password-manager/)
 
-Utiliza a [Stanford Javascript Crypto Library](http://bitwiseshiftleft.github.io/sjcl/) 
+Utiliza a [Stanford Javascript Crypto Library](https://github.com/bitwiseshiftleft/sjcl) para criptografar as senhas
 
 Para Salvar as alterações clique no botão Salvar, não tente usar a opção de menu **Arquivo / Salvar** do navegador para salvar as alterações(não funciona)
 
