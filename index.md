@@ -36,20 +36,20 @@ The "Secret Message" and "Authentication Data" fields are optional but increase 
 
 ![Inserting Data](images/insert-data.gif)
 
-### Save data
+### Saving data
 
 ![Save Data](images/save-date.gif)
 
-### Search
+### Searching
 
 ![Search](images/search.gif)
 
-### Delete data
+### Deleting data
 
 ![Delete](images/del-data.gif)
 
 ### Mobile access from Dropbox
 
-Just query by mobile device
+Just query by mobile device from your Dropbox app
 
 ![Mobile](images/mobile-access.gif)
