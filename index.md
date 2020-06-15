@@ -18,7 +18,7 @@ The **Secret Message** and **Authentication Data** fields are optional, they are
 
 **CAUTION**: If the Master password is reset, all passwords will be lost and must be re-registered. Always have a **backup** copy of this file.
 
-[Download Latest Release](https://github.com/alexandrecvieira/html-password-manager/releases/latest)
+<a href="https://github.com/alexandrecvieira/html-password-manager/releases/latest" target="_blank">Download Latest Release</a>
 
 ## Features
 
