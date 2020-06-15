@@ -15,6 +15,8 @@
     <script>
       var release = '{{ site.github.latest_release.name }}'
       console.log(release);
+      var releaseText = "Released Version: " + release;
+      document.getElementById("releaseHeader").innetHTML = releaseText;
     </script>
 
 {% seo %}
@@ -39,6 +41,7 @@
     </header>
 
     <main id="content" class="main-content" role="main">
+      <h3 id="releaseHeader></h3>
       {{ content }}
 
       <footer class="site-footer">
