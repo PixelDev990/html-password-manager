@@ -1,4 +1,8 @@
 
+2020-06-14  Alexandre C Vieira <acamargo.vieira@gmail.com>
+
+	* Bug in the save function; Improved indentation; Line break on table
+
 2020-06-12  Alexandre C Vieira <acamargo.vieira@gmail.com>
 
 	* Update accounter-en.html

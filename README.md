@@ -17,8 +17,13 @@ ATENÇÃO: Se a senha Mestra for resetada, todas as senhas serão perdidas e dev
 ## CHANGELOG
 
 ### [Unreleased]
+
+### [hpm_0.6] - 2020-06-14
 * Mobile device detection
 * Allow to save only the master password
+* Bug in the save function
+* Improved indentation
+* Line break on table
 
 ### [hpm_0.5] - 2020-06-10
 * Search feature improved
@@ -30,8 +35,3 @@ ATENÇÃO: Se a senha Mestra for resetada, todas as senhas serão perdidas e dev
 
 ### [en_0.3] - 2019-07-12
 * Improved master password screen, hiding password by default and button to show password | Visibility of statusIndicator
-
-### [pt-br_0.3] - 2019-07-12
-* Melhorada tela da senha mestra, ocultando a senha por padrão e botão para mostrar senha | Visibilidade do statusIndicator
-
-
